@@ -1,17 +1,16 @@
 {
-  "name": "health4life",
+  "name": "mern-tutorial-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scripts": {
-      "build": "cd client && npm run build",
-      "install-client": "cd client && npm install",
-      "heroku-postbuild": "npm run install-client && npm run build",
-      "start": "node server.js",
-      "client": "cd client && npm start",
-      "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
-    },
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +18,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.9"
+    "http-proxy-middleware": "^1.0.6",
+    "mongoose": "^5.9.23"
   }
 }
