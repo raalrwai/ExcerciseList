@@ -7,6 +7,7 @@ import EditExercise from "./components/edit-exercise.component";
 import ExercisesList from "./components/exercises-list.component";
 import CreateDiet from "./components/create-diet.component";
 import Navbar from "./components/navbar.component";
+import LoginButton from './components/LoginButton';
 
 /* import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/create" component={CreateExercise} />
         <Route path="/user" component={CreateUser} />
         <Route path="/diet" component={CreateDiet} />
+        <LoginButton/>
       </div>
     </Router>
     
