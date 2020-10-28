@@ -10,6 +10,7 @@ import Navbar from "./components/navbar.component";
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
+import { ValueProvider } from './components/ValueContext';
 
 /* import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
@@ -17,7 +18,11 @@ import { useAuth0 } from '@auth0/auth0-react'; */
 
 function App() {
   return (
-    <>
+    
+    <ValueProvider>
+
+    
+
    <Router>
       <div className = "container">
    <Navbar />
@@ -32,8 +37,9 @@ function App() {
         <Profile/>
       </div>
     </Router>
+   
     
-    </>
+    </ValueProvider>
   );
 
 }
