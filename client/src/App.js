@@ -7,8 +7,7 @@ import EditExercise from "./components/edit-exercise.component";
 import ExercisesList from "./components/exercises-list.component";
 import CreateDiet from "./components/create-diet.component";
 import Navbar from "./components/navbar.component";
-import LoginButton from './components/LoginButton';
-import LogoutButton from './components/LogoutButton';
+
 import Profile from './components/Profile';
 import Loading from './components/Loading';
 import PrivateRoute from './components/private-route';
@@ -29,21 +28,20 @@ function App() {
     
     <ValueProvider>
 
-    
-
    <Router>
       <div className = "container">
    <Navbar />
       <br/>
+         <PrivateRoute path="/profile" component={Profile} />
         <Route path="/" exact component={ExercisesList} />
         <Route path="/edit/:id" component={EditExercise} />
         <PrivateRoute path="/create" component={CreateExercise} />
         <PrivateRoute path="/user" component={CreateUser} />
         <PrivateRoute path="/diet" component={CreateDiet} />
-        <LoginButton/>
-        <LogoutButton/>
-        <Profile/>
-      </div>
+        
+    
+        </div>
+       
     </Router>
    
     

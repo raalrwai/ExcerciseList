@@ -14,7 +14,7 @@
     text-align: center;
     min-height: 100vh;
   }
-/* .button {
+ .button {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -24,10 +24,8 @@
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  position: absolute;
-  right:100px;
-    top: 0px;
-    ;
+  float:right;
+  
   cursor: pointer;
 } 
 .button2 {
@@ -45,5 +43,5 @@
     top: 0px;
     ;
   cursor: pointer;
-}  */
+}  
  
