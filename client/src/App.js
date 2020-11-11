@@ -38,8 +38,8 @@ function App() {
         <Route path="/" exact component={ExercisesList} />
         <Route path="/edit/:id" component={EditExercise} />
         <PrivateRoute path="/create" component={CreateExercise} />
-        <Route path="/user" component={CreateUser} />
-        <Route path="/diet" component={CreateDiet} />
+        <PrivateRoute path="/user" component={CreateUser} />
+        <PrivateRoute path="/diet" component={CreateDiet} />
         <LoginButton/>
         <LogoutButton/>
         <Profile/>

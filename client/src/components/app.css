@@ -6,7 +6,14 @@
     border: 1px solid green ;
     width: 25%;
   }
-
+  .spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
 /* .button {
   background-color: #4CAF50;
   border: none;
