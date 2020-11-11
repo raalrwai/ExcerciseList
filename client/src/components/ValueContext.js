@@ -3,15 +3,15 @@ import React, {useState, createContext} from 'react';
 export const ValueContext = createContext();
 
 export const ValueProvider = props => {
-    const [login, setLogin] = useState([
+    const [login, setLogin] = useState(
         {
-            loggedIn: 'true'
-        }
-
-    ]);
+            loggedIn: 'false',
+            
+        },
+    );
 
     return(
-    <ValueContext.Provider value='Hello this work'>
+    <ValueContext.Provider value={[login,setLogin]}>
         {props.children}
         </ValueContext.Provider>
     );

@@ -10,13 +10,21 @@ import Navbar from "./components/navbar.component";
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
+import Loading from './components/Loading';
+import PrivateRoute from './components/private-route';
+
 import { ValueProvider } from './components/ValueContext';
 
-/* import LogoutButton from './components/LogoutButton';
-import Profile from './components/Profile';
-import { useAuth0 } from '@auth0/auth0-react'; */
+import { useAuth0 } from '@auth0/auth0-react'; 
 
 function App() {
+  const {isLoading} = useAuth0();
+  if (isLoading)
+  return(
+   
+      <Loading/>
+    
+  )
   return (
     
     <ValueProvider>
@@ -29,7 +37,7 @@ function App() {
       <br/>
         <Route path="/" exact component={ExercisesList} />
         <Route path="/edit/:id" component={EditExercise} />
-        <Route path="/create" component={CreateExercise} />
+        <PrivateRoute path="/create" component={CreateExercise} />
         <Route path="/user" component={CreateUser} />
         <Route path="/diet" component={CreateDiet} />
         <LoginButton/>
