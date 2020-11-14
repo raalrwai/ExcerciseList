@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, HashRouter } from "react-router-dom";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 import EditExercise from "./components/edit-exercise.component";
@@ -28,11 +28,10 @@ function App() {
     
     <ValueProvider>
 
-   <Router>
+   <HashRouter>
       <div className = "container">
    <Navbar />
       <br/>
-      <Switch>
          <PrivateRoute path="/profile" component={Profile} />
         <Route path="/" exact component={ExercisesList} />
         <Route path="/edit/:id" component={EditExercise} />
@@ -40,10 +39,10 @@ function App() {
         <PrivateRoute path="/user" component={CreateUser} />
         <PrivateRoute path="/diet" component={CreateDiet} />
         
-        </Switch>
+    
         </div>
        
-    </Router>
+    </HashRouter>
    
     
     </ValueProvider>
