@@ -46,11 +46,7 @@ export default class Navbar extends Component {
                 Create User
               </Link>
             </li>
-            <li id="diet"className="navbar-item">
-              <Link to="/diet" className="nav-link"onClick={this.handleClick}>
-                Create Diet
-              </Link>
-            </li>
+           
          
             
           </ul>
