@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { withAuth0 } from '@auth0/auth0-react';
 
 const Exercise = props => (
+
     <tr>
       <td>{props.exercise.username}</td>
       <td>{props.exercise.description}</td>
@@ -14,7 +16,8 @@ const Exercise = props => (
     </tr>
   )
 
-export default class ExercisesList extends Component {
+
+class ExercisesList extends Component {
     constructor(props) {
         super(props);
     
@@ -48,9 +51,12 @@ export default class ExercisesList extends Component {
       }
     
       render() {
+        const { isAuthenticated } = this.props.auth0;
         return (
+          isAuthenticated && (
           <div>
-            <h3>Logged Exercises</h3>
+           
+            <h3>Logged Exercises {}</h3>
             <table className="table">
               <thead className="thead-light">
                 <tr>
@@ -66,6 +72,8 @@ export default class ExercisesList extends Component {
               </tbody>
             </table>
           </div>
+          )
         )
     }
 }
+export default withAuth0(ExercisesList);
