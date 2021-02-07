@@ -30,9 +30,9 @@ import "./app.css";
     
     isAuthenticated && (
       <>
-      <button class ="button" onClick={() => logout()}>
-        Log Out
-      </button>
+      <button class ="button" onClick={() => {
+        logout({ returnTo: window.location.origin });
+      }}>Log out</button>
       
       <h1>{login.loggedIn}</h1>
      
