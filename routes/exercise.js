@@ -6,7 +6,12 @@ router.route('/').get((req, res) => {
     .then(exercises => res.json(exercises))
     .catch(err => res.status(400).json('Error: ' + err));
 });
-
+router.route('/:username').get((req, res) => {
+  console.log("username ")
+  Exercise.find({ username: req.params.username })
+    .then(exercise => res.json(exercise))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 router.route('/add').post((req, res) => {
   const username = req.body.username;
   const description = req.body.description;
@@ -30,6 +35,7 @@ router.route('/:id').get((req, res) => {
     .then(exercise => res.json(exercise))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
 
 router.route('/:id').delete((req, res) => {
   Exercise.findByIdAndDelete(req.params.id)

@@ -25,18 +25,54 @@ class ExercisesList extends Component {
     
         this.deleteExercise = this.deleteExercise.bind(this)
     
-        this.state = {exercises: []};
+        this.state = {
+          exercises: [],
+          authenticated: "false"
+        };
       }
     
-      componentDidMount() {
+       componentDidMount() {
+        const { isAuthenticated } = this.props.auth0;
+        if(isAuthenticated){
+        const username = "user";
+
+        console.log(username); 
+       axios.get(`/exercises/${username}`) //assuming you have a username variable */
+      .then(response => {
+        this.setState({ exercises: response.data })
+      })
+      .catch((error) => {
+        console.log(error);
+      })   
+    }else{
         axios.get('/exercises/')
           .then(response => {
             this.setState({ exercises: response.data })
           })
           .catch((error) => {
             console.log(error);
-          })
-      }
+          })  
+        
+      } 
+       }
+      /* componentDidUpdate(prevProps) {
+        const { isAuthenticated } = this.props.auth0;
+       console.log(isAuthenticated);
+       console.log(prevProps.auth0.isAuthenticated)
+       if(isAuthenticated !== prevProps.auth0.isAuthenticated){
+      if(isAuthenticated){
+        prevProps.authenticated = "true"
+        axios.get('/exercises/')
+        .then(response => {
+          this.setState({ exercises: response.data })
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        }
+
+        } 
+      } */
     
       deleteExercise(id) {
         axios.delete('/exercises/'+id)
@@ -69,8 +105,8 @@ class ExercisesList extends Component {
                   { isAuthenticated ?
                     <th>Actions</th>     
                      : 
-      <th></th>
-      }
+                    <th></th>
+                   }
                 
                 </tr>
               </thead>

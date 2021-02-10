@@ -34,7 +34,7 @@ import "./app.css";
         logout({ returnTo: window.location.origin });
       }}>Log out</button>
       
-      <h1>{login.loggedIn}</h1>
+      {/* <h1>{login.loggedIn}</h1> */}
      
      
           
